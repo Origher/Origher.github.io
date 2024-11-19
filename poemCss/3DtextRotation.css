@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 将所有元素的外边距和内边距重置为0，以确保页面的干净布局 */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1200px;
+}
+/* 设置body的高度为视口的100%，并使用Flexbox居中对齐所有内容 */
+/* position:relative; 为3D变换提供正确的上下文 */
+/* overflow:hidden; 用于裁剪3D空间中超出视图的部分 */
+/* perspective:1200px; 为3D变换提供透视效果 */
+div {
+    transform-style: preserve-3d;
+}
+/* 确保div的子元素在3D空间中的位置得以保留 */
+.word-box,
+.word-box .word {
+    position: absolute;
+    animation: rotY 0s linear infinite;
+    animation-duration: var(--animation-duration);
+    animation-delay: var(--animation-delay);
+}
+/* .word-box 和 .word-box .word 都使用绝对定位 */
+/* 应用名为rotY的关键帧动画，动画在0秒内无限次线性播放 */
+/* 动画的持续时间和延迟通过CSS变量控制 */
+
+.word-box {
+    margin-top: var(--margin-top);
+}
+/* .word-box的上边距通过CSS变量控制 */
+
+.word-box .word {
+    margin-left: var(--margin-left);
+}
+/* .word-box中的.word的左边距通过CSS变量控制 */
+
+@keyframes rotY {
+    to {
+        transform: rotateY(360deg);
+    }
+}
+/* 定义名为rotY的关键帧动画 */
+/* 在动画的结束状态，元素将在Y轴上旋转360度 */

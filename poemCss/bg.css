@@ -1,0 +1,24 @@
+.bg {
+    position: fixed; /* 添加固定定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, #d6eddf, #fae9c8, rgb(195, 227, 250), #dad2dc, #f1cffb);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    z-index: -1; /* 确保背景在内容之下 */
+}
+
+/* 定义渐变动画的关键帧 */
+@keyframes gradient {
+    0% {
+        background-position: 0 6%; /* 动画开始时背景位置 */
+    }
+    50% {
+        background-position: 100% 100%; /* 动画中间时背景位置 */
+    }
+    100% {
+        background-position: 0 6%; /* 动画结束时背景位置，回到起始位置 */
+    }
+}
